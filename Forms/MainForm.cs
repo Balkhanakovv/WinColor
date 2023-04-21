@@ -2,18 +2,22 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
-
 using Microsoft.Win32;
+using WinColor.Forms;
 
 namespace WinColor
 {
     public partial class MainForm : Form
     {
-        private static readonly RegistryKey colorsKey = Registry.CurrentUser
+        private DbContextSQLite dbContext;
+
+        private RegistryKey colorsKey = Registry.CurrentUser
             .OpenSubKey("Control Panel", true)
             .OpenSubKey("Colors", true);
 
         private List<Button> buttonsList = new List<Button>();
+
+        private string selectedProfileName = "";
 
         private void UpdateButtons(List<Button> buttonsList, Control.ControlCollection controls, RegistryKey colorsKey)
         {
@@ -42,6 +46,8 @@ namespace WinColor
         {
             InitializeComponent();
 
+            dbContext = new DbContextSQLite("DataSource=Data\\profiles.db");
+
             UpdateButtons(buttonsList, Controls, colorsKey);
         }
 
@@ -69,8 +75,7 @@ namespace WinColor
 
         private void DefaultButton_Click(object sender, EventArgs e)
         {
-            colorsKey.SetValue("Hilight", "0 120 215");
-            colorsKey.SetValue("HotTrackingColor", "0 102 204");
+            dbContext.GetDefaultParameters(colorsKey);
 
             UpdateButtons(buttonsList, Controls, colorsKey);
 
@@ -85,6 +90,18 @@ namespace WinColor
         private void AboutMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Программа для персонализации Windows.\n\nhttps://github.com/Balkhanakovv/WinColor", "О программе");
+        }
+
+        private void CreateProfileMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new CreateProfileForm(dbContext, buttonsList);
+            form.ShowDialog();
+        }
+
+        private void SelectProfileMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new SelectProfileForm(dbContext, buttonsList);
+            form.ShowDialog();
         }
     }
 }
