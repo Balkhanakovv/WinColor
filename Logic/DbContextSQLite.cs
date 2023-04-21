@@ -18,9 +18,9 @@ namespace WinColor
 
         public void IsDbExist()
         {
-            if (!File.Exists("Data\\profiles.db"))
+            if (!File.Exists(connectionString))
             {
-                using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+                using (SQLiteConnection conn = new SQLiteConnection($"DataSource={connectionString}"))
                 {
                     conn.Open();
 
@@ -71,7 +71,7 @@ namespace WinColor
         {
             IsDbExist();
 
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SQLiteConnection conn = new SQLiteConnection($"DataSource={connectionString}"))
             {
                 conn.Open();
 
@@ -100,7 +100,7 @@ namespace WinColor
         {
             IsDbExist();
 
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SQLiteConnection conn = new SQLiteConnection($"DataSource={connectionString}"))
             {
                 conn.Open();
 
@@ -126,7 +126,7 @@ namespace WinColor
 
             var profilesList = new List<string>();
 
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SQLiteConnection conn = new SQLiteConnection($"DataSource={connectionString}"))
             {
                 conn.Open();
 
@@ -155,7 +155,7 @@ namespace WinColor
         {
             IsDbExist();
 
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SQLiteConnection conn = new SQLiteConnection($"DataSource={connectionString}"))
             {
                 conn.Open();
 

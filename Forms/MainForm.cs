@@ -17,8 +17,6 @@ namespace WinColor
 
         private List<Button> buttonsList = new List<Button>();
 
-        private string selectedProfileName = "";
-
         private void UpdateButtons(List<Button> buttonsList, Control.ControlCollection controls, RegistryKey colorsKey)
         {
             buttonsList.Clear();
@@ -46,7 +44,7 @@ namespace WinColor
         {
             InitializeComponent();
 
-            dbContext = new DbContextSQLite("DataSource=Data\\profiles.db");
+            dbContext = new DbContextSQLite("Data\\profiles.db");
 
             UpdateButtons(buttonsList, Controls, colorsKey);
         }
