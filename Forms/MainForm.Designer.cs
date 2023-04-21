@@ -33,6 +33,9 @@
             this.HotTrackingColorButton = new System.Windows.Forms.Button();
             this.AcceptButton = new System.Windows.Forms.Button();
             this.Menu = new System.Windows.Forms.MenuStrip();
+            this.ProfileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CreateProfileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SelectProfileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DefaultButton = new System.Windows.Forms.Button();
@@ -41,7 +44,7 @@
             // 
             // HilightButton
             // 
-            this.HilightButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.HilightButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.HilightButton.FlatAppearance.BorderSize = 0;
             this.HilightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HilightButton.Font = new System.Drawing.Font("Calibri Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -56,6 +59,7 @@
             // 
             // HotTrackingColorButton
             // 
+            this.HotTrackingColorButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.HotTrackingColorButton.FlatAppearance.BorderSize = 0;
             this.HotTrackingColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.HotTrackingColorButton.Font = new System.Drawing.Font("Calibri Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -83,6 +87,7 @@
             // 
             this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ProfileMenuItem,
             this.HelpMenuItem,
             this.AboutMenuItem});
             this.Menu.Location = new System.Drawing.Point(0, 0);
@@ -90,6 +95,29 @@
             this.Menu.Size = new System.Drawing.Size(484, 24);
             this.Menu.TabIndex = 3;
             this.Menu.Text = "menuStrip1";
+            // 
+            // ProfileMenuItem
+            // 
+            this.ProfileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CreateProfileMenuItem,
+            this.SelectProfileMenuItem});
+            this.ProfileMenuItem.Name = "ProfileMenuItem";
+            this.ProfileMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.ProfileMenuItem.Text = "Профиль";
+            // 
+            // CreateProfileMenuItem
+            // 
+            this.CreateProfileMenuItem.Name = "CreateProfileMenuItem";
+            this.CreateProfileMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CreateProfileMenuItem.Text = "Создать профиль";
+            this.CreateProfileMenuItem.Click += new System.EventHandler(this.CreateProfileMenuItem_Click);
+            // 
+            // SelectProfileMenuItem
+            // 
+            this.SelectProfileMenuItem.Name = "SelectProfileMenuItem";
+            this.SelectProfileMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.SelectProfileMenuItem.Text = "Выбрать профиль";
+            this.SelectProfileMenuItem.Click += new System.EventHandler(this.SelectProfileMenuItem_Click);
             // 
             // HelpMenuItem
             // 
@@ -147,9 +175,12 @@
         private System.Windows.Forms.Button HilightButton;
         private System.Windows.Forms.Button HotTrackingColorButton;
         private new System.Windows.Forms.Button AcceptButton;
-        private System.Windows.Forms.MenuStrip Menu;
+        private new System.Windows.Forms.MenuStrip Menu;
         private System.Windows.Forms.ToolStripMenuItem HelpMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AboutMenuItem;
         private System.Windows.Forms.Button DefaultButton;
+        private System.Windows.Forms.ToolStripMenuItem ProfileMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CreateProfileMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SelectProfileMenuItem;
     }
 }
