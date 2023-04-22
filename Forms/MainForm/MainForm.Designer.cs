@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.HilightButton = new System.Windows.Forms.Button();
             this.HotTrackingColorButton = new System.Windows.Forms.Button();
@@ -109,14 +108,14 @@
             // CreateProfileMenuItem
             // 
             this.CreateProfileMenuItem.Name = "CreateProfileMenuItem";
-            this.CreateProfileMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.CreateProfileMenuItem.Size = new System.Drawing.Size(180, 22);
             this.CreateProfileMenuItem.Text = "Создать профиль";
             this.CreateProfileMenuItem.Click += new System.EventHandler(this.CreateProfileMenuItem_Click);
             // 
             // SelectProfileMenuItem
             // 
             this.SelectProfileMenuItem.Name = "SelectProfileMenuItem";
-            this.SelectProfileMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.SelectProfileMenuItem.Size = new System.Drawing.Size(180, 22);
             this.SelectProfileMenuItem.Text = "Выбрать профиль";
             this.SelectProfileMenuItem.Click += new System.EventHandler(this.SelectProfileMenuItem_Click);
             // 
@@ -156,13 +155,13 @@
             this.Controls.Add(this.HotTrackingColorButton);
             this.Controls.Add(this.HilightButton);
             this.Controls.Add(this.Menu);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.Menu;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(500, 320);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(500, 320);
             this.Name = "MainForm";
+            this.ShowIcon = false;
             this.Text = "WinColor";
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateProfileForm));
             this.label1 = new System.Windows.Forms.Label();
             this.ProfileNameTextBox = new System.Windows.Forms.TextBox();
             this.SaveProfileButton = new System.Windows.Forms.Button();
@@ -68,13 +67,11 @@
             this.Controls.Add(this.SaveProfileButton);
             this.Controls.Add(this.ProfileNameTextBox);
             this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(300, 150);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(300, 150);
             this.Name = "CreateProfileForm";
-            this.ShowInTaskbar = false;
             this.Text = "WinColor";
             this.ResumeLayout(false);
             this.PerformLayout();

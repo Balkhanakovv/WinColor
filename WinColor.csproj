@@ -121,7 +121,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <DesignData Include="Data\profiles.db">
+    <DesignData Include="profiles.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </DesignData>
     <None Include="packages.config" />
@@ -150,6 +150,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

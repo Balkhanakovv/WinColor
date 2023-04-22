@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectProfileForm));
             this.ProfileComboBox = new System.Windows.Forms.ComboBox();
             this.SelectProfileButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -47,7 +46,7 @@
             this.SelectProfileButton.Name = "SelectProfileButton";
             this.SelectProfileButton.Size = new System.Drawing.Size(75, 23);
             this.SelectProfileButton.TabIndex = 1;
-            this.SelectProfileButton.Text = "Выбрать";
+            this.SelectProfileButton.Text = "Сохранить";
             this.SelectProfileButton.UseVisualStyleBackColor = true;
             this.SelectProfileButton.Click += new System.EventHandler(this.SelectProfileButton_Click);
             // 
@@ -58,10 +57,8 @@
             this.ClientSize = new System.Drawing.Size(284, 111);
             this.Controls.Add(this.SelectProfileButton);
             this.Controls.Add(this.ProfileComboBox);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(300, 150);
             this.Name = "SelectProfileForm";
-            this.ShowInTaskbar = false;
             this.Text = "WinColor";
             this.ResumeLayout(false);
 

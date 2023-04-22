@@ -44,7 +44,7 @@ namespace WinColor
         {
             InitializeComponent();
 
-            dbContext = new DbContextSQLite("profiles.db");
+            dbContext = new DbContextSQLite("Data\\profiles.db");
 
             UpdateButtons(buttonsList, Controls, colorsKey);
         }
