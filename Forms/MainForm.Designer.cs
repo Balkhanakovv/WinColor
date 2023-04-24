@@ -40,6 +40,8 @@
             this.HelpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DefaultButton = new System.Windows.Forms.Button();
+            this.WindowButton = new System.Windows.Forms.Button();
+            this.WindowTextButton = new System.Windows.Forms.Button();
             this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,12 +147,44 @@
             this.DefaultButton.UseVisualStyleBackColor = false;
             this.DefaultButton.Click += new System.EventHandler(this.DefaultButton_Click);
             // 
+            // WindowButton
+            // 
+            this.WindowButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.WindowButton.FlatAppearance.BorderSize = 0;
+            this.WindowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WindowButton.Font = new System.Drawing.Font("Calibri Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.WindowButton.ForeColor = System.Drawing.Color.White;
+            this.WindowButton.Location = new System.Drawing.Point(272, 27);
+            this.WindowButton.Name = "WindowButton";
+            this.WindowButton.Size = new System.Drawing.Size(124, 40);
+            this.WindowButton.TabIndex = 5;
+            this.WindowButton.Text = "Window";
+            this.WindowButton.UseVisualStyleBackColor = true;
+            this.WindowButton.Click += new System.EventHandler(this.WindowButton_Click);
+            // 
+            // WindowTextButton
+            // 
+            this.WindowTextButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.WindowTextButton.FlatAppearance.BorderSize = 0;
+            this.WindowTextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WindowTextButton.Font = new System.Drawing.Font("Calibri Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.WindowTextButton.ForeColor = System.Drawing.Color.White;
+            this.WindowTextButton.Location = new System.Drawing.Point(12, 74);
+            this.WindowTextButton.Name = "WindowTextButton";
+            this.WindowTextButton.Size = new System.Drawing.Size(124, 40);
+            this.WindowTextButton.TabIndex = 6;
+            this.WindowTextButton.Text = "WindowText";
+            this.WindowTextButton.UseVisualStyleBackColor = true;
+            this.WindowTextButton.Click += new System.EventHandler(this.WindowsTextButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(484, 281);
+            this.Controls.Add(this.WindowTextButton);
+            this.Controls.Add(this.WindowButton);
             this.Controls.Add(this.DefaultButton);
             this.Controls.Add(this.AcceptButton);
             this.Controls.Add(this.HotTrackingColorButton);
@@ -183,5 +217,7 @@
         private System.Windows.Forms.ToolStripMenuItem ProfileMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CreateProfileMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SelectProfileMenuItem;
+        private System.Windows.Forms.Button WindowButton;
+        private System.Windows.Forms.Button WindowTextButton;
     }
 }
