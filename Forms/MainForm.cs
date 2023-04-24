@@ -4,12 +4,14 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using Microsoft.Win32;
 using WinColor.Forms;
+using WinColor.Models;
+using System.Configuration;
 
 namespace WinColor
 {
     public partial class MainForm : Form
     {
-        private DbContextSQLite dbContext;
+        private readonly DbContextSQLite dbContext;
 
         private RegistryKey colorsKey = Registry.CurrentUser
             .OpenSubKey("Control Panel", true)
@@ -25,7 +27,7 @@ namespace WinColor
             {
                 if (item is Button)
                 {
-                    var btn = (Button)item;
+                    var btn = item as Button;
 
                     if (btn.Name != "AcceptButton" && btn.Name != "DefaultButton")
                     {
@@ -43,8 +45,12 @@ namespace WinColor
         public MainForm()
         {
             InitializeComponent();
+            var conn = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
 
-            dbContext = new DbContextSQLite("profiles.db");
+            dbContext = string.IsNullOrWhiteSpace(conn)
+                ? new DbContextSQLite()
+                : new DbContextSQLite(conn);
+            dbContext.IsDbExist();
 
             UpdateButtons(buttonsList, Controls, colorsKey);
         }
@@ -82,7 +88,11 @@ namespace WinColor
 
         private void HelpMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hilight - выделенного текста\nHotTrackColor - цвет рамки выделения\n\nЧтобы применить изменения, нужно перезагрузить ПК.", "Подсказка");
+            MessageBox.Show($"{Constants.ButtonsDescription.HILIGHT}\n" +
+                $"{Constants.ButtonsDescription.HOT_TRACK_COLOR}\n" +
+                $"{Constants.ButtonsDescription.WINDOW}\n" +
+                $"{Constants.ButtonsDescription.WINDOW_TEXT}\n" +
+                $"\nЧтобы применить изменения, нужно перезагрузить ПК.", "Подсказка");
         }
 
         private void AboutMenuItem_Click(object sender, EventArgs e)
@@ -100,6 +110,18 @@ namespace WinColor
         {
             var form = new SelectProfileForm(dbContext, buttonsList);
             form.ShowDialog();
+        }
+
+        private void WindowButton_Click(object sender, EventArgs e)
+        {
+            colorDialog.ShowDialog();
+            WindowButton.BackColor = colorDialog.Color;
+        }
+
+        private void WindowsTextButton_Click(object sender, EventArgs e)
+        {
+            colorDialog.ShowDialog();
+            WindowTextButton.BackColor = colorDialog.Color;
         }
     }
 }

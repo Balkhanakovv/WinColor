@@ -16,6 +16,11 @@ namespace WinColor
             this.connectionString = connectionString;
         }
 
+        public DbContextSQLite()
+        {
+            connectionString = "profiles.db";
+        }
+
         public void IsDbExist()
         {
             if (!File.Exists(connectionString))
