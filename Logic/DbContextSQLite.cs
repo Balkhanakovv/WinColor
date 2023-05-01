@@ -13,7 +13,7 @@ namespace WinColor
         public DbContextSQLite(string connectionString) 
         {
             this.connectionString = connectionString;
-        }
+        } 
 
         public void IsDbExist()
         {

@@ -60,6 +60,8 @@ namespace WinColor
             {
                 colorDialog.ShowDialog();
                 (sender as Button).BackColor = colorDialog.Color;
+
+                (sender as Button).ForeColor = colorDialog.Color.R + colorDialog.Color.G + colorDialog.Color.B < 600 ? Color.White : Color.Black;
             }
         }
 
