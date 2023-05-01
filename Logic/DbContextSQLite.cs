@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System.Linq;
 using System.Data.SQLite;
 using System.Windows.Forms;
 using System.Collections.Generic;
@@ -14,11 +13,6 @@ namespace WinColor
         public DbContextSQLite(string connectionString) 
         {
             this.connectionString = connectionString;
-        }
-
-        public DbContextSQLite()
-        {
-            connectionString = "profiles.db";
         }
 
         public void IsDbExist()
@@ -49,7 +43,9 @@ namespace WinColor
 
                     command.CommandText = "INSERT INTO parameters (name) VALUES " +
                         "(\'Hilight\'), " +
-                        "(\'HotTrackingColor\')";
+                        "(\'HotTrackingColor\'), " +
+                        "(\'Window\')," +
+                        "(\'WindowText\')";
                     command.ExecuteNonQuery();
 
                     command.CommandText = "CREATE TABLE notes (" +
@@ -64,7 +60,9 @@ namespace WinColor
 
                     command.CommandText = "INSERT INTO notes (profileId, parameterId, value) VALUES " +
                         "(1, 1, \'0 120 215\')," +
-                        "(1, 2, \'0 102 204\')";
+                        "(1, 2, \'0 102 204\')," +
+                        "(1, 3, \'255 255 255\')," +
+                        "(1, 4, \'0 0 0\')";
                     command.ExecuteNonQuery();
 
                     conn.Close();

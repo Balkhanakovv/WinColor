@@ -4,8 +4,6 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using Microsoft.Win32;
 using WinColor.Forms;
-using WinColor.Models;
-using System.Configuration;
 
 namespace WinColor
 {
@@ -36,6 +34,9 @@ namespace WinColor
                             .Split(' ');
 
                         btn.BackColor = Color.FromArgb(int.Parse(color[0]), int.Parse(color[1]), int.Parse(color[2]));
+
+                        btn.ForeColor = int.Parse(color[0]) + int.Parse(color[1]) + int.Parse(color[2]) < 600 ? Color.White : Color.Black;
+
                         buttonsList.Add(btn);
                     }
                 }
@@ -45,26 +46,21 @@ namespace WinColor
         public MainForm()
         {
             InitializeComponent();
-            var conn = ConfigurationManager.ConnectionStrings["db"].ConnectionString;
 
-            dbContext = string.IsNullOrWhiteSpace(conn)
-                ? new DbContextSQLite()
-                : new DbContextSQLite(conn);
-            dbContext.IsDbExist();
+            var homePath = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
+            dbContext = new DbContextSQLite($"{homePath}\\profiles.db");
 
             UpdateButtons(buttonsList, Controls, colorsKey);
         }
 
-        private void HilightButton_Click(object sender, EventArgs e)
+        private void ColorButtons_Click(object sender, EventArgs e)
         {
-            colorDialog.ShowDialog();
-            HilightButton.BackColor = colorDialog.Color;
-        }
-
-        private void HotTrackingColorButton_Click(object sender, EventArgs e)
-        {
-            colorDialog.ShowDialog();
-            HotTrackingColorButton.BackColor = colorDialog.Color;
+            if (sender is Button)
+            {
+                colorDialog.ShowDialog();
+                (sender as Button).BackColor = colorDialog.Color;
+            }
         }
 
         private void AcceptButton_Click(object sender, EventArgs e)
@@ -97,7 +93,8 @@ namespace WinColor
 
         private void AboutMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Программа для персонализации Windows.\n\nhttps://github.com/Balkhanakovv/WinColor", "О программе");
+            var form = new AboutForm();
+            form.ShowDialog();
         }
 
         private void CreateProfileMenuItem_Click(object sender, EventArgs e)
@@ -110,18 +107,6 @@ namespace WinColor
         {
             var form = new SelectProfileForm(dbContext, buttonsList);
             form.ShowDialog();
-        }
-
-        private void WindowButton_Click(object sender, EventArgs e)
-        {
-            colorDialog.ShowDialog();
-            WindowButton.BackColor = colorDialog.Color;
-        }
-
-        private void WindowsTextButton_Click(object sender, EventArgs e)
-        {
-            colorDialog.ShowDialog();
-            WindowTextButton.BackColor = colorDialog.Color;
         }
     }
 }

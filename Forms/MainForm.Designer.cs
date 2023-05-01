@@ -58,7 +58,7 @@
             this.HilightButton.TabIndex = 0;
             this.HilightButton.Text = "Hilight";
             this.HilightButton.UseVisualStyleBackColor = true;
-            this.HilightButton.Click += new System.EventHandler(this.HilightButton_Click);
+            this.HilightButton.Click += new System.EventHandler(this.ColorButtons_Click);
             // 
             // HotTrackingColorButton
             // 
@@ -73,12 +73,12 @@
             this.HotTrackingColorButton.TabIndex = 1;
             this.HotTrackingColorButton.Text = "HotTrackingColor";
             this.HotTrackingColorButton.UseVisualStyleBackColor = true;
-            this.HotTrackingColorButton.Click += new System.EventHandler(this.HotTrackingColorButton_Click);
+            this.HotTrackingColorButton.Click += new System.EventHandler(this.ColorButtons_Click);
             // 
             // AcceptButton
             // 
             this.AcceptButton.BackColor = System.Drawing.Color.White;
-            this.AcceptButton.Location = new System.Drawing.Point(397, 246);
+            this.AcceptButton.Location = new System.Drawing.Point(321, 246);
             this.AcceptButton.Name = "AcceptButton";
             this.AcceptButton.Size = new System.Drawing.Size(75, 23);
             this.AcceptButton.TabIndex = 2;
@@ -95,7 +95,7 @@
             this.AboutMenuItem});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(484, 24);
+            this.Menu.Size = new System.Drawing.Size(409, 24);
             this.Menu.TabIndex = 3;
             this.Menu.Text = "menuStrip1";
             // 
@@ -139,7 +139,7 @@
             // DefaultButton
             // 
             this.DefaultButton.BackColor = System.Drawing.Color.White;
-            this.DefaultButton.Location = new System.Drawing.Point(299, 246);
+            this.DefaultButton.Location = new System.Drawing.Point(223, 246);
             this.DefaultButton.Name = "DefaultButton";
             this.DefaultButton.Size = new System.Drawing.Size(92, 23);
             this.DefaultButton.TabIndex = 4;
@@ -154,13 +154,13 @@
             this.WindowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WindowButton.Font = new System.Drawing.Font("Calibri Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.WindowButton.ForeColor = System.Drawing.Color.White;
-            this.WindowButton.Location = new System.Drawing.Point(272, 27);
+            this.WindowButton.Location = new System.Drawing.Point(272, 28);
             this.WindowButton.Name = "WindowButton";
             this.WindowButton.Size = new System.Drawing.Size(124, 40);
             this.WindowButton.TabIndex = 5;
             this.WindowButton.Text = "Window";
             this.WindowButton.UseVisualStyleBackColor = true;
-            this.WindowButton.Click += new System.EventHandler(this.WindowButton_Click);
+            this.WindowButton.Click += new System.EventHandler(this.ColorButtons_Click);
             // 
             // WindowTextButton
             // 
@@ -175,14 +175,14 @@
             this.WindowTextButton.TabIndex = 6;
             this.WindowTextButton.Text = "WindowText";
             this.WindowTextButton.UseVisualStyleBackColor = true;
-            this.WindowTextButton.Click += new System.EventHandler(this.WindowsTextButton_Click);
+            this.WindowTextButton.Click += new System.EventHandler(this.ColorButtons_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(484, 281);
+            this.ClientSize = new System.Drawing.Size(409, 281);
             this.Controls.Add(this.WindowTextButton);
             this.Controls.Add(this.WindowButton);
             this.Controls.Add(this.DefaultButton);
@@ -193,9 +193,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.Menu;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(500, 320);
+            this.MaximumSize = new System.Drawing.Size(425, 320);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(500, 320);
+            this.MinimumSize = new System.Drawing.Size(425, 320);
             this.Name = "MainForm";
             this.Text = "WinColor";
             this.Menu.ResumeLayout(false);
