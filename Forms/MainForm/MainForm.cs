@@ -9,11 +9,27 @@ namespace WinColor
 {
     public partial class MainForm : Form
     {
+        public Profile SelectedProfile { get; set; }
+
         private readonly DbContextSQLite dbContext;
 
-        private RegistryKey colorsKey = Registry.CurrentUser
-            .OpenSubKey("Control Panel", true)
-            .OpenSubKey("Colors", true);
+        private string homePath
+        {
+            get
+            {
+                return System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            }
+        }
+
+        private RegistryKey colorsKey 
+        {
+            get
+            {
+                return Registry.CurrentUser
+                        .OpenSubKey("Control Panel", true)
+                        .OpenSubKey("Colors", true);
+            }
+        }
 
         private List<Button> buttonsList = new List<Button>();
 
@@ -47,7 +63,7 @@ namespace WinColor
         {
             InitializeComponent();
 
-            var homePath = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            SelectedProfile = new Profile();
 
             dbContext = new DbContextSQLite($"{homePath}\\profiles.db");
 
@@ -58,6 +74,7 @@ namespace WinColor
         {
             if (sender is Button)
             {
+                colorDialog.Color = (sender as Button).BackColor;
                 colorDialog.ShowDialog();
                 (sender as Button).BackColor = colorDialog.Color;
 

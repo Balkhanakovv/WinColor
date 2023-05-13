@@ -1,4 +1,4 @@
-﻿namespace WinColor.Forms
+﻿namespace WinColor
 {
     partial class CreateProfileForm
     {

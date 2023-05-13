@@ -2,7 +2,8 @@
 using System.Windows.Forms;
 using System.Collections.Generic;
 
-namespace WinColor.Forms
+
+namespace WinColor
 {
     public partial class CreateProfileForm : Form
     {
